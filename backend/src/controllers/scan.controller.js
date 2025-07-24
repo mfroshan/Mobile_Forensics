@@ -27,7 +27,7 @@ exports.handleScan = async (req, res) => {
   }
 
   if (archiveExtensions.includes(ext)) {
-    aleappResult = await runAleapp(file.path);
+    aleappResult = await runAleapp(file.path, ext);
   }
 
   const riskLevel = ml > 0.7 || yara.length > 0 ? 'HIGH' : 'LOW';

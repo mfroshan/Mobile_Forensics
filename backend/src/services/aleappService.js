@@ -7,15 +7,14 @@ const ALEAPP_PATH = path.resolve(__dirname, '../../ALEAPP/aleapp.py');
 const outputBase = path.join(__dirname, '../../reports/aleapp');
 
 function getInputType(inputPath) {
-  const ext = path.extname(inputPath).toLowerCase();
-  if (fs.lstatSync(inputPath).isDirectory()) return 'fs';
+  const ext = inputPath.toLowerCase();
   if (ext === '.zip') return 'zip';
   if (ext === '.tar') return 'tar';
-  if (ext === '.gz' || ext === '.tgz' || inputPath.endsWith('.tar.gz')) return 'gz';
+  if (ext === '.gz' || ext === '.tgz' || ext.endsWith('.tar.gz')) return 'gz';
   return 'fs';
 }
 
-function runAleapp(inputFolder) {
+function runAleapp(inputFolder, extension) {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(inputFolder)) return reject(new Error('Input folder does not exist'));
 
@@ -25,7 +24,7 @@ function runAleapp(inputFolder) {
     const aleappOutputFolder = path.join(outputBase, `aleapp-${randomSuffix}`);
     fs.mkdirSync(aleappOutputFolder, { recursive: true });
 
-    const inputType = getInputType(inputFolder);
+    const inputType = getInputType(extension);
     const command = `python3 "${ALEAPP_PATH}" -i "${inputFolder}" -o "${aleappOutputFolder}" -t ${inputType}`;
 
     exec(command, { timeout: 10 * 60 * 1000 }, (error, stdout, stderr) => {
@@ -36,19 +35,25 @@ function runAleapp(inputFolder) {
       }
 
       try {
-        const jsonReportsPath = path.join(aleappOutputFolder, 'Json');
-        if (!fs.existsSync(jsonReportsPath)) {
-          return resolve({ reports: [], count: 0, reportUrl: null });
+        const htmlPath = path.join(aleappOutputFolder, '_HTML');
+        const jsonPath = path.join(aleappOutputFolder, 'Json');
+        const hasJson = fs.existsSync(jsonPath);
+
+        let reports = [];
+        let count = 0;
+
+        if (hasJson) {
+          const reportFiles = fs.readdirSync(jsonPath).filter(f => f.endsWith('.json'));
+          reports = reportFiles.map(file => {
+            const content = fs.readFileSync(path.join(jsonPath, file), 'utf-8');
+            return JSON.parse(content);
+          });
+          count = reports.length;
         }
 
-        const reportFiles = fs.readdirSync(jsonReportsPath).filter(f => f.endsWith('.json'));
-        const reports = reportFiles.map(file => {
-          const content = fs.readFileSync(path.join(jsonReportsPath, file), 'utf-8');
-          return JSON.parse(content);
-        });
+        const reportUrl = `/reports/aleapp/${path.basename(aleappOutputFolder)}/_HTML/index.html`;
 
-        const reportUrl = `/reports/aleapp/${path.basename(aleappOutputFolder)}`;
-        resolve({ reports, count: reports.length, reportUrl });
+        resolve({ reports, count, reportUrl });
       } catch (parseError) {
         reject(parseError);
       }
