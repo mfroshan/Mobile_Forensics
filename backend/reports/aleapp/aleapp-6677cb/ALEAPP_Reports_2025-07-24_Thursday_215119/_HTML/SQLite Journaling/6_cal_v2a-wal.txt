@@ -1,0 +1,132 @@
+5HZCWAKHE0
+5HZCW[SYTSQLite format 3
+ctableandroid_metadataandroid_metadata
+CREATE TABLE android_metadata (locale TEXT)
+5HZCWU
+9I\@7
+5HZCWZMOa
+
+
+5HZCW-
+en_US
+5HZCW
+SQLite format 3
+\#eA
+:nYc
+
+
+5HZCWw(CKK
+
+N8y~
+
+tpt9
+
+5HZCW}
+Zr>?v
+
+5HZCWT(NK(l
+
+5HZCW<
+5HZCW;j)m
+5HZCW.H
+:F{
+
+5	xplat_schema_version
+5HZCW>
+5HZCWs`hOn
+
+5HZCWJHY
+5HZCW8"W	
+
+5HZCW[
+5HZCWvp8@
+y8(
+
+5HZCW?5w
+
+5HZCWO
+5HZCWy
+5HZCW#vd6
+5HZCWW?8dL
+
+5HZCW"
+5HZCWyq5
+
+5HZCWK @:HZ
+
+5HZCWP7
+
+5HZCW2lw
+5HZCW.I
+
+
+
+	
+wtablexplat_schema_versionxplat_schema_version'CREATE TABLE "xplat_schema_version" ("row_id" INTEGER PRIMARY KEY ON CONFLICT ABORT AUTOINCREMENT, "version" INTEGER)S#
+]tableAppointmentSlotAppointmentSlot%CREATE TABLE "AppointmentSlot" ("AccountId" TEXT NOT NULL, "CalendarId" TEXT NOT NULL, "AppointmentSlotId" TEXT NOT NULL, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER, PRIMARY KEY ("AccountId", "CalendarId", "AppointmentSlotId") ON CONFLICT ABORT) 
+ctableAccessDataAccessData"CREATE TABLE "AccessData" ("AccountId" TEXT NOT NULL, "CalendarId" TEXT NOT NULL, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER, PRIMARY KEY ("AccountId", "CalendarId") ON CONFLICT ABORT)S
+]tableClientChangeSetClientChangeSet
+CREATE TABLE "ClientChangeSet" ("ChangeId" INTEGER PRIMARY KEY ON CONFLICT ABORT AUTOINCREMENT, "AccountId" TEXT NOT NULL, "CreateTimeMs" INTEGER NOT NULL, "IsApplied" INTEGER NOT NULL, "isInteractive" INTEGER NOT NULL, "Proto" BLOB NOT NULL, "EntityReferences" BLOB NOT NULL, "IsFailed" INTEGER)
++indexIDX_SyncTrigger_AccountId_ascSyncTrigger!CREATE INDEX "IDX_SyncTrigger_AccountId_asc" ON "SyncTrigger" ("AccountId" ASC)R
+ktableSyncTriggerSyncTrigger CREATE TABLE "SyncTrigger" ("TriggerId" INTEGER PRIMARY KEY ON CONFLICT ABORT AUTOINCREMENT, "AccountId" TEXT NOT NULL, "CreateTimeMs" INTEGER NOT NULL, "Proto" BLOB NOT NULL)=
+ItableSyncStateSyncState
+CREATE TABLE "SyncState" ("AccountId" TEXT NOT NULL, "Proto" BLOB NOT NULL, "UpdateTimestampMs" INTEGER NOT NULL, PRIMARY KEY ("AccountId") ON CONFLICT ABORT)1
+indexsqlite_autoindex_SyncState_1SyncState
+tableSyncCallInstructionsSyncCallInstructions
+CREATE TABLE "SyncCallInstructions" ("AccountId" TEXT NOT NULL, "Proto" BLOB NOT NULL, PRIMARY KEY ("AccountId") ON CONFLICT ABORT)G
+indexsqlite_autoindex_SyncCallInstructions_1SyncCallInstructions
+eindexIDX_Settings_AccountId_asc_ToBeRemoved_ascSettings
+CREATE INDEX "IDX_Settings_AccountId_asc_ToBeRemoved_asc" ON "Settings" ("AccountId" ASC, "ToBeRemoved" ASC)/
+indexsqlite_autoindex_Settings_1Settings
+mtableSettingsSettings
+CREATE TABLE "Settings" ("AccountId" TEXT NOT NULL, "SettingId" TEXT NOT NULL, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER NOT NULL, PRIMARY KEY ("AccountId", "SettingId") ON CONFLICT ABORT)#
+]indexIDX_Habits_AccountId_asc_ToBeRemoved_ascHabits
+CREATE INDEX "IDX_Habits_AccountId_asc_ToBeRemoved_asc" ON "Habits" ("AccountId" ASC, "ToBeRemoved" ASC)+
+indexsqlite_autoindex_Habits_1Habits
+atableHabitsHabits
+CREATE TABLE "Habits" ("AccountId" TEXT NOT NULL, "HabitId" TEXT NOT NULL, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER NOT NULL, PRIMARY KEY ("AccountId", "HabitId") ON CONFLICT ABORT)M
+indexIDX_Events_AccountId_asc_CalendarId_asc_EndDayUtc_ascEvents
+CREATE INDEX "IDX_Events_AccountId_asc_CalendarId_asc_EndDayUtc_asc" ON "Events" ("AccountId" ASC, "CalendarId" ASC, "EndDayUtc" ASC)+
+indexsqlite_autoindex_Events_1Events
+{tableEventsEvents
+CREATE TABLE "Events" ("AccountId" TEXT NOT NULL, "CalendarId" TEXT NOT NULL, "EventId" TEXT NOT NULL, "StartDayUtc" INTEGER, "EndDayUtc" INTEGER, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER, PRIMARY KEY ("AccountId", "CalendarId", "EventId") ON CONFLICT ABORT)A
+yindexIDX_ClientChangeSet_AccountId_asc_IsApplied_ascClientChangeSet
+CREATE INDEX "IDX_ClientChangeSet_AccountId_asc_IsApplied_asc" ON "ClientChangeSet" ("AccountId" ASC, "IsApplied" ASC)=$
+indexsqlite_autoindex_AppointmentSlot_1AppointmentSlot&3"
+mindexIDX_AccessData_AccountId_asc_ToBeRemoved_ascAccessData$CREATE INDEX "IDX_AccessData_AccountId_asc_ToBeRemoved_asc" ON "AccessData" ("AccountId" ASC, "ToBeRemoved" ASC)3!
+indexsqlite_autoindex_AccessData_1AccessData#
+)5HZCW7ML
+
+0
+
+
+y		
+
+]indexIDX_Cleanup_AccountId_asc_CalendarId_ascCleanup
+CREATE INDEX "IDX_Cleanup_AccountId_asc_CalendarId_asc" ON "Cleanup" ("AccountId" ASC, "CalendarId" ASC)P
+
+Ytablesqlite_sequencesqlite_sequence
+CREATE TABLE sqlite_sequence(name,seq)4
+?tableCleanupCleanup
+CREATE TABLE "Cleanup" ("RowId" INTEGER PRIMARY KEY ON CONFLICT ABORT AUTOINCREMENT, "AccountId" TEXT NOT NULL, "CalendarId" TEXT, "Proto" BLOB NOT NULL)
+CindexIDX_CalendarSyncInfo_IsSelected_ascCalendarSyncInfo
+CREATE INDEX "IDX_CalendarSyncInfo_IsSelected_asc" ON "CalendarSyncInfo" ("IsSelected" ASC)K
+
+indexIDX_CalendarSyncInfo_AccountId_asc_ToBeRemoved_ascCalendarSyncInfoCREATE INDEX "IDX_CalendarSyncInfo_AccountId_asc_ToBeRemoved_asc" ON "CalendarSyncInfo" ("AccountId" ASC, "ToBeRemoved" ASC)_
+qtableCalendarSyncInfoCalendarSyncInfo
+CREATE TABLE "CalendarSyncInfo" ("AccountId" TEXT NOT NULL, "CalendarId" TEXT NOT NULL, "IsSelected" INTEGER NOT NULL, "IsSyncEnabled" INTEGER NOT NULL, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER, PRIMARY KEY ("AccountId", "CalendarId") ON CONFLICT ABORT)?	
+indexsqlite_autoindex_CalendarSyncInfo_1CalendarSyncInfo/
+iindexIDX_Calendars_AccountId_asc_ToBeRemoved_ascCalendars	CREATE INDEX "IDX_Calendars_AccountId_asc_ToBeRemoved_asc" ON "Calendars" ("AccountId" ASC, "ToBeRemoved" ASC),
+'tableCalendarsCalendars
+CREATE TABLE "Calendars" ("AccountId" TEXT NOT NULL, "CalendarId" TEXT NOT NULL, "HasOwnerAccess" INTEGER NOT NULL, "Proto" BLOB NOT NULL, "ServerProto" BLOB, "ToBeRemoved" INTEGER, "ClientChangeCount" INTEGER, PRIMARY KEY ("AccountId", "CalendarId") ON CONFLICT ABORT)1
+indexsqlite_autoindex_Calendars_1Calendars
+GindexIDX_Accounts_PlatformAccountName_ascAccounts
+CREATE INDEX "IDX_Accounts_PlatformAccountName_asc" ON "Accounts" ("PlatformAccountName" ASC)"
+tableAccountsAccounts
+CREATE TABLE "Accounts" ("AccountId" TEXT NOT NULL, "PlatformAccountName" TEXT NOT NULL, PRIMARY KEY ("AccountId") ON CONFLICT ABORT)/
+indexsqlite_autoindex_Accounts_1Accounts
+5HZCW_R2
+
+)5HZCWt
+SF_
+

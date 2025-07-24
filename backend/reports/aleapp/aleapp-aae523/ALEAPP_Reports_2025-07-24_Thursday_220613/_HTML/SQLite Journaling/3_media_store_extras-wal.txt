@@ -1,0 +1,393 @@
+eW>xc
+eW%iVSQLite format 3
+ctableandroid_metadataandroid_metadata
+CREATE TABLE android_metadata (locale TEXT)
+eWuzd
+{d?i
+
+
+en_US
+eW~:*/
+SQLite format 3
+eWQ 
+eWzr
+
+eWM>
+eW%/|hO
+
+
+eWe#
+Z
+
+eW
+x
+
+eWEC`n
+
+eW,'nF
+
+eWiy
+eWlU,
+
+eW"{{
+eWOz
+eWnnrF
+
+eWFY1
+%zro
+
+eWY6~4
+
+0551a2ac-7de8-4aaf-b070-3aaa83f5af88
+eW>l
+
+eW?r{a
+
+eWyp
+eWjU[
+
+-_jHG
+
+=
+s
+!		
+
+indexsqlite_autoindex_timezones_1timezones
+7tablemedia_store_extra_sl
+tablemedia_store_extensionmedia_store_extension
+CREATE TABLE media_store_extension(id INTEGER PRIMARY KEY NOT NULL, date_modified INTEGER NOT NULL, populated_columns INTEGER NOT NULL, is_animated INTEGER, photo_orientation INTEGER, burst_id TEXT, filename_burst_id TEXT, burst_is_primary INTEGER, drm INTEGER, fingerprint TEXT, fingerprint_size INTEGER, oem_special_type_id TEXT, photosphere INTEGER, video_width INTEGER, video_height INTEGER, video_captured_frame_rate REAL, video_encoded_frame_rate REAL, is_vr INTEGER, is_raw INTEGER, depth_type INTEGER, is_microvideo INTEGER, micro_video_offset INTEGER, burst_is_extra INTEGER, micro_video_still_image_timestamp_ms INTEGER, micro_video_duration_ms INTEGER, micro_video_metadata BLOB, adjusted_exif_date_time INTEGER, timezone_offset INTEGER, latitude REAL, longitude REAL, is_long_shot_video INTEGER, image_width INTEGER, image_height INTEGER, video_duration INTEGER, retry_count INTEGER DEFAULT NULL, next_retry_time INTEGER DEFAULT NULL, hdr_type INTEGER )
+5indexapp_local_lfolder_filepath_idxlocal_locked_mediaCREATE INDEX app_local_lfolder_filepath_idx ON local_locked_media(private_file_path)		
+)indexapp_local_lfolder_procid_idxlocal_locked_mediaCREATE INDEX app_local_lfolder_procid_idx ON local_locked_media(processing_id)
+'indexapp_local_lfolder_gen_idxlocal_locked_media
+CREATE INDEX app_local_lfolder_gen_idx ON local_locked_media(generation, _id)P
+Ytablesqlite_sequencesqlite_sequence	CREATE TABLE sqlite_sequence(name,seq)
+/tablelocal_locked_medialocal_locked_media
+CREATE TABLE local_locked_media (_id INTEGER PRIMARY KEY AUTOINCREMENT, dedup_key TEXT UNIQUE NOT NULL, original_file_location TEXT, private_file_path TEXT NOT NULL, type INTEGER NOT NULL, capture_timestamp INTEGER NOT NULL, utc_timestamp INTEGER NOT NULL, timezone_offset INTEGER NOT NULL, composition_type INTEGER, is_micro_video INTEGER NOT NULL DEFAULT 0, micro_video_offset INTEGER NOT NULL DEFAULT -1, micro_video_still_image_timestamp INTEGER, processing_id INTEGER, width INTEGER, height INTEGER, overlay_type INTEGER NOT NULL DEFAULT 0, is_vr INTEGER NOT NULL DEFAULT 0, capture_frame_rate REAL, encoded_frame_rate REAL, oem_special_type TEXT, latitude REAL, longitude REAL, duration INTEGER, is_raw INTEGER NOT NULL DEFAULT 0, mime_type TEXT, generation INTEGER NOT NULL DEFAULT 0, size_bytes INTEGER, fingerprint_hex TEXT, filename TEXT )C
+indexsqlite_autoindex_local_locked_media_1local_locked_media
+yindexkey_prefix_idxkey_value
+CREATE INDEX key_prefix_idx ON key_value(_key, prefix)Q
+qtablekey_valuekey_value
+CREATE TABLE key_value (prefix TEXT NOT NULL, _key TEXT NOT NULL, value TEXT NOT NULL, value_type INTEGER NOT NULL, collection_type INTEGER NOT NULL, UNIQUE(prefix, _key, value))1
+indexsqlite_autoindex_key_value_1key_value
+/
++
+
+Q3	<
+
+Mtablevideo_transcode_probe_v2video_transcode_probe_v2
+CREATE TABLE video_transcode_probe_v2 (width INTEGER NOT NULL, height INTEGER NOT NULL, frame_rate INTEGER NOT NULL, decoder_name TEXT NOT NULL, encoder_name TEXT NOT NULL, output_size INTEGER NOT NULL, input_motion_factor DOUBLE NOT NULL, renderer_type INTEGER NOT NULL, probe_bitrate REAL NOT NULL, motion_correction_factor DOUBLE NOT NULL DEFAULT 1)=
+-tablewatch_face_mediawatch_face_media
+CREATE TABLE watch_face_media (_id INTEGER PRIMARY KEY AUTOINCREMENT, media_id TEXT NOT NULL, node_id TEXT NOT NULL, position INTEGER NOT NULL )
+tableobsolete_mse_processor_idsobsolete_mse_processor_ids
+CREATE TABLE obsolete_mse_processor_ids(processor_id TEXT PRIMARY KEY)S
+indexsqlite_autoindex_obsolete_mse_processor_ids_1obsolete_mse_processor_ids
+1tableconnected_apps_metadataconnected_apps_metadata
+CREATE TABLE connected_apps_metadata (package_name TEXT,auth_status BOOLEAN NOT NULL DEFAULT(0),connected_account_id INTEGER,library_version TEXT)2
+otabledeleted_local_locked_mediadeleted_local_locked_media
+CREATE TABLE deleted_local_locked_media (deleted_id INTEGER NOT NULL UNIQUE, generation INTEGER NOT NULL UNIQUE )S
+indexsqlite_autoindex_deleted_local_locked_media_2deleted_local_locked_media
+indexsqlite_autoindex_deleted_local_locked_media_1deleted_local_locked_media
+=tablelocked_folder_metadatalocked_folder_metadata
+CREATE TABLE locked_folder_metadata (version TEXT NOT NULL, generation INTEGER NOT NULL)!
+atablevideo_transcode_probevideo_transcode_probe
+CREATE TABLE video_transcode_probe (width INTEGER NOT NULL, height INTEGER NOT NULL, frame_rate INTEGER NOT NULL, decoder_name TEXT NOT NULL, encoder_name TEXT NOT NULL, probe_bitrate REAL NOT NULL, output_size INTEGER NOT NULL, motion_correction_factor DOUBLE NOT NULL DEFAULT 1, PRIMARY KEY (width, height, frame_rate, decoder_name, encoder_name, output_size))I
+indexsqlite_autoindex_video_transcode_probe_1video_transcode_probe
+indexcontent_uri_idxtimezones
+CREATE INDEX content_uri_idx ON timezones(content_uri, timezone_offset)1
+Etabletimezonestimezones
+CREATE TABLE timezones (content_uri TEXT UNIQUE NOT NULL, timezone_offset INTEGER NOT NULL )c
+indexsqlite_autoindex_media_store_extra_slomo_transition_1media_store_extra_slomo_transition
+7tablemedia_store_extra_slomo_transitionmedia_store_extra_slomo_transition
+CREATE TABLE media_store_extra_slomo_transition (_id INTEGER PRIMARY KEY AUTOINCREMENT, content_uri TEXT UNIQUE NOT NULL, transition_data BLOB NOT NULL, modified_timestamp_utc INTEGER NOT NULL DEFAULT -2147483648)
+stableprocessing_marsprocessing_mars
+CREATE TABLE processing_mars (id INTEGER PRIMARY KEY AUTOINCREMENT, date_added INTEGER NOT NULL, file_name TEXT NOT NULL, is_pending INTEGER NOT NULL DEFAULT 1, is_visible INTEGER NOT NULL DEFAULT 1, av_type INTEGER NOT NULL, mime_type TEXT NOT NULL, private_file_path TEXT, progress_status INTEGER NOT NULL DEFAULT 1, progress_percentage INTEGER NOT NULL DEFAULT 0, restore_path TEXT, special_type_id TEXT, thumbnail_file_path TEXT, timezone_offset INTEGER NOT NULL, utc_timestamp INTEGER NOT NULL)
+eW$48
+
+	com.google.android.apps.photos.schedulerlast_work_override_time1753375773933
+2OI
+
+];'	com.google.android.apps.photos.schedulerlast_work_override_time1753375773933
+;]	last_work_override_timecom.google.android.apps.photos.scheduler
+eWg;QVP
+
+_=_		com.google.android.apps.photos.mediastoreprev_media_store_version1405:76fdb519-a58b-470f-b4d5-7d86a14ce4baS
+eWb#
+
+com.google.android.apps.photos.mediastoreprev_media_store_version1405:76fdb519-a58b-470f-b4d5-7d86a14ce4ba
+prev_media_store_versioncom.google.android.apps.photos.mediastore
+eW@5L;^
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified0
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id9223372036854775807
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified9223372036854775807
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-1
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id0
+eW~D:
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified0
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id9223372036854775807
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified9223372036854775807
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-1
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id0
+ eWu:
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35
+eWm#`
+
+eW9*z
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified0<
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id9223372036854775807A
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified9223372036854775807
+2
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-1	*
+ eWP
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35(
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35-
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35
+/
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35	(
+P
+
+g		
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified0
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id9223372036854775807
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified9223372036854775807
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_date_modified_seconds-1
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id0
+eW[!
+		&
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified0
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id9223372036854775807
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified9223372036854775807
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_date_modified_seconds-1
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id0
+/
+ eWpn
+
+M
+k	
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43
+-
+(?k
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id0
+ eWx
+B!K
+
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified0
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id9223372036854775807
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified9223372036854775807
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_date_modified_seconds-1
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id0
+eWdA
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified0
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id9223372036854775807
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified9223372036854775807
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_date_modified_seconds-1
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id0
+ eW;
+v
+M
+k
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35
+eW5zSZ
+eWB!H
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified0 >
+ eWi
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35 *
+eWN.
+
+eW9h5<2
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified0%<
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id9223372036854775807$A
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified9223372036854775807#2
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-1"*
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id0!p
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35%(
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35$-
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35#/
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35"(
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35!F
+eW$s
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified0*%
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id9223372036854775807)*
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified9223372036854775807(
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_date_modified_seconds-1'
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id0&/
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43*
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43)
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43(
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43'
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43&-
+Buk
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified0/>
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id9223372036854775807.C
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified9223372036854775807-4
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_date_modified_seconds-1,,
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id0+
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35/*
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35./
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35-1
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35,*
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35+
+eWxx
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified04<
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id92233720368547758073A
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified922337203685477580722
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-11*
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id00p
+ eW7[
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_354(
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_353-
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_352/
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_351(
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_350F
+eWf	_=
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified09%
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id92233720368547758078*
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified92233720368547758077
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_date_modified_seconds-16
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id05/
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension439
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension438
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension437
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension436
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension435-
+eW%")0
+
+eWf
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified0>>
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id9223372036854775807=C
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified9223372036854775807<4
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_date_modified_seconds-1;,
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id0:
+S"l{
+
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35>*
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35=/
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35<1
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35;*
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35:
+ eW= f
+)TA+
+
+
+J
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id1000000068
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified43
+eW){Wg
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id1000000068?1
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id05
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified43C<
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id9223372036854775807BA
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified9223372036854775807A2
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-1@p
+ eWc}.
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35C(
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35B-
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35A/
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35@(
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35?F
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id1000000068
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified43
+;
+
+"
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id1000000068D1
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_generation_modified43H3
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_media_store_id1000000068G0
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35oldest_generation_modified43F2
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_date_modified_seconds-1Ep
+i#4
+
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35H(
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35G-
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35F/
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35E(
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35DF
+?M/[L92Dw(g
+d%
+w		1
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified43
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id1000000068
+eW.e#
+=5	G
+	
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified43M%
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id9223372036854775807L*
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified9223372036854775807K
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_date_modified_seconds-1J
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id1000000068I0
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43M
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43L
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43K
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43J
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43I-
+eW,l
+
+(
+	
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id1000000068
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified43
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id0:	G
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_media_store_id1000000068N
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_generation_modified43R
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_media_store_id1000000068Q
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43oldest_generation_modified43P
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43newest_date_modified_seconds-1O0
+	R	4
+
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43R
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43Q
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43P
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43O
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.mediastoreextras.MediaStoreExtension43N-
+eWYd
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified43
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id1000000068
+eWHN'
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_INITIAL_4_35_35newest_media_store_id1000000068D	G
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified43W>
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id9223372036854775807VC
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified9223372036854775807U4
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_date_modified_seconds-1T5
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id1000000068S
+ eWeb
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35W*
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35V/
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35U1
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35T*
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35S
+eW^g3
+u
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id1000000068
+	com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified43
+eWKh
+
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_generation_modified43\5
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_media_store_id1000000068[2
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35oldest_generation_modified43Z4
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_date_modified_seconds-1Y5
+com.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35newest_media_store_id1000000068X
+ eWA
+newest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35\*
+oldest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35[/
+oldest_generation_modifiedcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35Z1
+newest_date_modified_secondscom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35Y*
+newest_media_store_idcom.google.android.apps.photos.mediastorescanner0com.google.android.apps.photos.photosmediastoresync.AllPhotosScanConsumer_-1_SECONDARY_4_50_35X

@@ -1,0 +1,14 @@
+﻿Name	Value	Source File
+network_location_opt_in	1	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+data_store_version	3	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+client_id	unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+search_client_id	ms-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+chrome_client_id	ms-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+maps_client_id	gmm-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+youtube_client_id	mvapp-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+market_client_id	am-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+voicesearch_client_id	ms-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+playtx_client_id	play-ms-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+playax_client_id	play-ad-ms-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+program_client_id	pg-unknown	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db
+use_location_for_services	1	/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.gsf/databases/googlesettings.db

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ALEAPP - Google Photos (gphotos-1) - Local Media report</title>
+        <!-- Dark mode -->
+        <link rel="stylesheet" href="_elements/dark-mode.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_elements/all.css">
+        <!-- Google Fonts Roboto -->
+        <link rel="stylesheet" href="_elements/Roboto.css">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="_elements/MDB-Free_4.13.0/css/bootstrap.min.css">
+        <!-- Material Design Bootstrap - TOGGLE THIS FOR ALTERNATE DESIGN!-->
+        <link rel="stylesheet" href="_elements/MDB-Free_4.13.0/css/mdb.min.css">
+        <!-- Highlight.js -->
+        <link rel="stylesheet" href="_elements/highlight.min.css">
+        <script src="_elements/highlight.min.js"></script>
+        <!-- Cal-Heatmap -->
+        <script src="_elements/d3.v7.min.js"></script>
+        <script src="_elements/cal-heatmap.min.js"></script>
+        <link rel="stylesheet" href="_elements/cal-heatmap.css">
+        <script src="_elements/popper.min.js"></script>
+        <script src="_elements/Tooltip.min.js"></script>
+        <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" href="_elements/dashboard.css">
+        <link rel="stylesheet" href="_elements/chat.css">
+        <!-- MDBootstrap Datatables  -->
+        <link rel="stylesheet" href="_elements/MDB-Free_4.13.0/css/addons/datatables.min.css" rel="stylesheet">
+        <link href="_elements/timeline/css/timeline.min.css" rel="stylesheet" />
+
+        <!-- Icons -->
+        <!--script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script-->
+        <script src="_elements/feather.min.js"></script>
+    </head>
+    <body>
+
+    <!-- Start your project here-->
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html">ALEAPP 3.4.0</a>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+            <label class="custom-control-label mr-2" for="darkSwitch" style="color:white">Dark Switch</label>
+        </div>
+        <script src="_elements/dark-mode-switch.js"></script>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky" id="sidebar_id">
+                    <ul class="nav flex-column">
+
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Saved Reports
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="index.html">
+                <span data-feather="home"></span> Report Home
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Device Info
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Partner_Settings.html">
+                <span data-feather="settings"></span> Partner Settings
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Firebase Cloud Messaging
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="FCM-Dump-com.whatsapp.html">
+                <span data-feather="database"></span> FCM-Dump-com.whatsapp
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Gboard Keyboard
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Gboard_-_Sessions.html">
+                <span data-feather="alert-triangle"></span> Gboard - Sessions
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Google Photos
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link  active" href="Google_Photos_(gphotos-1)_-_Local_Media.html">
+                <span data-feather="alert-triangle"></span> Google Photos (gphotos-1) - Local Media
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Installed Apps
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="App_Icon.html">
+                <span data-feather="package"></span> App Icon
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Installed_Apps_(GMS)_for_user_0.html">
+                <span data-feather="package"></span> Installed Apps (GMS) for user 0
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            SQLite Journaling
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Strings_-_SQLite_Journal_&_WAL.html">
+                <span data-feather="book-open"></span> Strings - SQLite Journal & WAL
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Settings Services
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Settings_Services_-_Battery_Usage.html">
+                <span data-feather="battery-charging"></span> Settings Services - Battery Usage
+            </a>
+        </li>
+        
+        <h6 class="sidebar-heading justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            Wipe & Setup
+        </h6>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Setup_Wizard_Info.xml.html">
+                <span data-feather="loader"></span> Setup Wizard Info.xml
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link " href="Suggestions.xml.html">
+                <span data-feather="loader"></span> Suggestions.xml
+            </a>
+        </li>
+        
+    <script>
+        feather.replace();
+        var element = document.getElementById("sidebar_id");
+        var searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.has('navpos')) {
+            var nav_pos = parseInt(searchParams.get('navpos'));
+            if (!isNaN(nav_pos))
+                element.scrollTop = nav_pos;
+        }
+    </script>
+
+                    </ul>
+                    <br /><br />
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+                <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <img src="_elements/ALEAPP_banner.png" alt="ALEAPP banner">
+                    <h3 class="display-5">Google Photos (gphotos-1) - Local Media report</h1>
+                    <h6 class="animated fadeIn mb-3"></h6>
+                </div>
+
+                <div id="mySpinner" class="spinner-border text-info float-right" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+<h6>Total number of entries: 1</h6><p class="lead">Google Photos (gphotos-1) - Local Media located at: /Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450/data/emulator_data/com.google.android.apps.photos/databases/gphotos-1.db</p><br /><div class='table-responsive'><table id="dtBasicExample" class="table table-striped table-bordered table-xsm" cellspacing="0" ><thead><tr><th class="th-sm">Timestamp</th><th class="th-sm">File Name</th><th class="th-sm">File Path</th><th class="th-sm">Captured Timestamp (Local)</th><th class="th-sm">Timezone Offset</th><th class="th-sm">Width</th><th class="th-sm">Height</th><th class="th-sm">Size</th><th class="th-sm">Duration</th><th class="th-sm">Latitude</th><th class="th-sm">Longitude</th><th class="th-sm">Folder Name</th><th class="th-sm">Media Store ID</th><th class="th-sm">Trashed Timestamp</th><th class="th-sm">Purge Timestamp</th></tr></thead><tbody><tr><td>2025-07-24 17:23:32</td><td>istockphoto-814423752-612x612.jpg</td><td>/storage/emulated/0/Download/istockphoto-814423752-612x612.jpg</td><td>2025-07-24 18:23:32</td><td>1</td><td>612</td><td>408</td><td>82942</td><td></td><td></td><td></td><td>Download</td><td>1000000068</td><td></td><td></td></tr></tbody><tfoot><tr><th>Timestamp</th><th>File Name</th><th>File Path</th><th>Captured Timestamp (Local)</th><th>Timezone Offset</th><th>Width</th><th>Height</th><th>Size</th><th>Duration</th><th>Latitude</th><th>Longitude</th><th>Folder Name</th><th>Media Store ID</th><th>Trashed Timestamp</th><th>Purge Timestamp</th></tr></tfoot></table></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- End your project here-->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="_elements/MDB-Free_4.13.0/js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="_elements/MDB-Free_4.13.0/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="_elements/MDB-Free_4.13.0/js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="_elements/MDB-Free_4.13.0/js/mdb.min.js"></script>
+    <!-- Your custom scripts -->
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="_elements/MDB-Free_4.13.0/js/addons/datatables.min.js"></script>
+    <!-- Chart.js -->
+    <script type="text/javascript" src="_elements/chart.umd.min.js"></script>
+    <script type="text/javascript" src="_elements/moment.min.js"></script>
+    <script type="text/javascript" src="_elements/timeline/js/timeline.min.js"></script>
+    <!-- Garmin Functions -->
+    <script type="text/javascript" src="_elements/garmin-functions.js"></script>
+    <script type="text/javascript" src="_elements/chat.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dtBasicExample').DataTable({
+                //"scrollY": "60vh",
+                //"scrollX": "10%",
+                //"scrollCollapse": true,
+                "aLengthMenu": [[ 15, 50, 100, -1 ], [ 15, 50, 100, "All" ]],
+            });
+            $('.dataTables_length').addClass('bs-select');
+            $('#mySpinner').remove();
+            //$('#infiniteLoading').remove();
+        });
+    </script>
+
+    <script>
+        var elemScrollTop = document.getElementById("sidebar_id").scrollTop.toString();
+        document.addEventListener("DOMContentLoaded", function() {
+            var element = document.getElementById("sidebar_id");
+            element.addEventListener("scroll", function() {
+                elemScrollTop = document.getElementById("sidebar_id").scrollTop.toString();
+            });
+        });
+        $('a.nav-link').click(function(e) {
+            e.preventDefault();
+            location.href = $(this).attr('href') + "?navpos=" + elemScrollTop;
+        });
+    </script>
+
+    </body>
+</html>

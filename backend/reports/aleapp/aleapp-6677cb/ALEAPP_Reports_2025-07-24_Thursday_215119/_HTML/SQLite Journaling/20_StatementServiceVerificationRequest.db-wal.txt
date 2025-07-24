@@ -1,0 +1,26 @@
+7SQLite format 3
+ctableandroid_metadataandroid_metadata
+CREATE TABLE android_metadata (locale TEXT)
+=s)M9
+en_US
+{|sxfSQLite format 3
+!tableroom_master_tableroom_master_table
+CREATE TABLE room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)~
+tableVerificationRequestParamsVerificationRequestParams
+CREATE TABLE `VerificationRequestParams` (`id` TEXT NOT NULL, `packageName` TEXT NOT NULL, `domainsSetId` TEXT NOT NULL, `domains` TEXT NOT NULL, `status` INTEGER NOT NULL, PRIMARY KEY(`id`))Q
+indexsqlite_autoindex_VerificationRequestParams_1VerificationRequestParams
+-g9l
+
+M7ba7829c2aa8132a474f982594c257ee
+FBK
+
+3c6945a5-a392-4a8a-bac0-3ae5dcc071a6com.whatsappcc6b7175-0012-48ee-8268-5c4e40dc4bd9api.whatsapp.com www.whatsapp.com call.whatsapp.com wa.me v.whatsapp.com
+U	3c6945a5-a392-4a8a-bac0-3ae5dcc071a6
+
+{n|
+
+YmL
+
+U%UI
+b3c49ba6-a505-476c-b2c5-6205f6536b7ccom.whatsappcc6b7175-0012-48ee-8268-5c4e40dc4bd9whatsapp.com chat.whatsapp.com
+U	b3c49ba6-a505-476c-b2c5-6205f6536b7c

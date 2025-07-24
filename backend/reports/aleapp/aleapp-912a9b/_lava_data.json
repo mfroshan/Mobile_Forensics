@@ -1,0 +1,33 @@
+{
+    "param_input": "uploads/7323ddfdcbe2fc31e48ff33545089f5b",
+    "param_output": "/Users/roshan/Roshan/thesis/Mobile-forensics/backend/reports/aleapp/aleapp-912a9b/ALEAPP_Reports_2025-07-24_Thursday_215450",
+    "param_type": "zip",
+    "processing_status": "Complete",
+    "modules": [],
+    "artifacts": {
+        "Installed Apps": [
+            {
+                "name": "App Icon",
+                "tablename": "app_icon",
+                "module": "appicons",
+                "column_map": {
+                    "app_name": "App name",
+                    "package_name": "Package name",
+                    "main_icon": "Main icon",
+                    "icons": "Icons"
+                },
+                "record_count": 39,
+                "object_columns": [
+                    {
+                        "name": "main_icon",
+                        "type": "media"
+                    },
+                    {
+                        "name": "icons",
+                        "type": "media"
+                    }
+                ]
+            }
+        ]
+    }
+}

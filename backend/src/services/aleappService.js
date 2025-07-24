@@ -10,7 +10,7 @@ function getInputType(inputPath) {
   const ext = inputPath.toLowerCase();
   if (ext === '.zip') return 'zip';
   if (ext === '.tar') return 'tar';
-  if (ext === '.gz' || ext === '.tgz' || ext.endsWith('.tar.gz')) return 'gz';
+  if (ext === '.gz' || ext === '.tgz' || inputPath.endsWith('.tar.gz')) return 'gz';
   return 'fs';
 }
 
@@ -34,29 +34,30 @@ function runAleapp(inputFolder, extension) {
         return reject(error);
       }
 
-      try {
-        const htmlPath = path.join(aleappOutputFolder, '_HTML');
-        const jsonPath = path.join(aleappOutputFolder, 'Json');
-        const hasJson = fs.existsSync(jsonPath);
+      // Find the ALEAPP_* folder inside aleappOutputFolder
+      const subdirs = fs.readdirSync(aleappOutputFolder).filter(f => f.startsWith('ALEAPP_Reports'));
+      if (subdirs.length === 0) return resolve({ reports: [], count: 0, reportUrl: null });
 
-        let reports = [];
-        let count = 0;
+      const reportDir = path.join(aleappOutputFolder, subdirs[0]);
 
-        if (hasJson) {
-          const reportFiles = fs.readdirSync(jsonPath).filter(f => f.endsWith('.json'));
-          reports = reportFiles.map(file => {
-            const content = fs.readFileSync(path.join(jsonPath, file), 'utf-8');
-            return JSON.parse(content);
-          });
-          count = reports.length;
-        }
+      console.log("subdirs:",subdirs)
+      // // Move contents up one level
+      // fs.readdirSync(reportDir).forEach(item => {
+      //   fs.renameSync(
+      //     path.join(reportDir, item),
+      //     path.join(aleappOutputFolder, item)
+      //   );
+      // });
 
-        const reportUrl = `/reports/aleapp/${path.basename(aleappOutputFolder)}/_HTML/index.html`;
+      // fs.rmSync(reportDir, { recursive: true, force: true }); 
 
-        resolve({ reports, count, reportUrl });
-      } catch (parseError) {
-        reject(parseError);
-      }
+      const reportUrl = `http://localhost:4000/reports/aleapp/${path.basename(aleappOutputFolder)}/${subdirs}/_HTML/index.html`;
+
+      resolve({
+        reports: [],
+        count: 0,
+        reportUrl,
+      });
     });
   });
 }
