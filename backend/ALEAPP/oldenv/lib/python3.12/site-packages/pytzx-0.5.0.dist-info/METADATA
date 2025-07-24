@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pytzx
+Version: 0.5.0
+Summary: A simple API for creating TZX files in Python
+Home-page: https://github.com/morozov/pytzx
+Maintainer: Sergei Morozov
+Maintainer-email: morozov@tut.by
+License: GPLv2
+Requires-Python: >=3
+License-File: COPYING
+
