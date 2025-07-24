@@ -59,12 +59,12 @@ The server will run on port 4000 by default.
 
 ## Development Notes
 
-* Temporary files and ALEAPP output are stored under `backend/tmp/`
+* Temporary files and ALEAPP output are stored under `backend/reports/`
 * Uploaded files are saved under `backend/uploads/`
 * Nodemon is configured in `package.json` to ignore changes in these folders:
 
   ```json
-  "start": "nodemon --ignore tmp/ --ignore uploads/ --ignore ALEAPP/ ./src/index.js"
+  "start": "nodemon --ignore reports/ --ignore uploads/ --ignore ALEAPP/ ./src/index.js"
   ```
 
 ## Troubleshooting
